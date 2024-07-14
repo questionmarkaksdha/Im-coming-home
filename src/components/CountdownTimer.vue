@@ -104,6 +104,12 @@ body {
   text-align: center;
   position: relative;
   z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -118,7 +124,7 @@ h1 {
 }
 
 .time {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+  background: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
@@ -147,7 +153,7 @@ h1 {
   left: 50%;
   width: 150%;
   height: 150%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
