@@ -9,8 +9,8 @@
       <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
     </div>
     <p class="message">{{ name }} is turning 18 and coming back to Pennsylvania on September 3, 2026!</p>
-    <audio id="t1-sound" src="/public/t1"></audio>
-    <audio id="t2-sound" src="public/t2"></audio>
+    <audio id="t1-sound" src="/tick.mp3"></audio>
+    <audio id="t2-sound" src="/minute.mp3"></audio>
   </div>
 </template>
 
@@ -38,8 +38,8 @@ export default {
     setVolume() {
       const t1Sound = document.getElementById('t1-sound');
       const t2Sound = document.getElementById('t2-sound');
-      t1Sound.volume = 0.1; // Adjust volume for t1-sound (0.0 to 1.0)
-      t2Sound.volume = 1; // Adjust volume for t2-sound (0.0 to 1.0)
+      t1Sound.volume = 0.5; // Adjust volume for t1-sound (0.0 to 1.0)
+      t2Sound.volume = 0.5; // Adjust volume for t2-sound (0.0 to 1.0)
     },
     updateCountdown() {
       const now = new Date().getTime();
