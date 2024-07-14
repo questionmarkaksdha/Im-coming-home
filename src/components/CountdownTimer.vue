@@ -147,21 +147,4 @@ h1 {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
   background: rgba(255, 255, 255, 0.15);
 }
-
-.time::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: background 0.2s;
-}
-
-.time:hover::before {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent);
-}
 </style>
