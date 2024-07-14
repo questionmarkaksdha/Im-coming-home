@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Countdown to {{ name }}'s 18th Birthday</h1>
+    <h1>...</h1>
     <div id="countdown">
       <div class="time" title="Days">
         <span>{{ days }}</span><small>Days</small>
@@ -18,7 +18,7 @@
         <span>{{ milliseconds }}</span><small>Milliseconds</small>
       </div>
     </div>
-    <p class="message">{{ name }} is turning 18 and coming back to Pennsylvania on September 3, 2026!</p>
+    <p class="message">September 3, 2026!</p>
     <audio id="t1-sound">
       <source src="/tick.mp3" type="audio/mpeg">
       <source src="/tick.ogg" type="audio/ogg">
