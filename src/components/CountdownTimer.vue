@@ -1,14 +1,24 @@
 <template>
   <div class="container">
-    <h1>When I turn 18</h1>
+    <h1>Countdown to {{ name }}'s 18th Birthday</h1>
     <div id="countdown">
-      <div class="time"><span>{{ days }}</span><small>Days</small></div>
-      <div class="time"><span>{{ hours }}</span><small>Hours</small></div>
-      <div class="time"><span>{{ minutes }}</span><small>Minutes</small></div>
-      <div class="time"><span>{{ seconds }}</span><small>Seconds</small></div>
-      <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
+      <div class="time" title="Days">
+        <span>{{ days }}</span><small>Days</small>
+      </div>
+      <div class="time" title="Hours">
+        <span>{{ hours }}</span><small>Hours</small>
+      </div>
+      <div class="time" title="Minutes">
+        <span>{{ minutes }}</span><small>Minutes</small>
+      </div>
+      <div class="time" title="Seconds">
+        <span>{{ seconds }}</span><small>Seconds</small>
+      </div>
+      <div class="time" title="Milliseconds">
+        <span>{{ milliseconds }}</span><small>Milliseconds</small>
+      </div>
     </div>
-    <p class="message">Comin back to PA after that a little bit after...</p>
+    <p class="message">{{ name }} is turning 18 and coming back to Pennsylvania on September 3, 2026!</p>
     <audio id="t1-sound">
       <source src="/tick.mp3" type="audio/mpeg">
       <source src="/tick.ogg" type="audio/ogg">
@@ -108,10 +118,11 @@ h1 {
 }
 
 .time {
-  background: rgba(255, 255, 255, 0.1);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .time span {
@@ -122,5 +133,22 @@ h1 {
 .time small {
   font-size: 1em;
   display: block;
+}
+
+.time:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.time::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 </style>
