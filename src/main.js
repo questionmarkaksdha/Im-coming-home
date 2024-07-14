@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 import 'normalize.css';
-import 'src/particles.min.js'; // Import the minified particles.js file
-import { initParticles } from 'src/particles.js'; // Import your custom particles configuration
+import 'particles.js/particles'; // Import particles.js from node modules
+import { initParticles } from './particles'; // Import your custom particles configuration
 
 Vue.config.productionTip = false;
 
