@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Countdown to {{ name }}'s 18th Birthday</h1>
+    <h1>When I turn 18</h1>
     <div id="countdown">
       <div class="time"><span>{{ days }}</span><small>Days</small></div>
       <div class="time"><span>{{ hours }}</span><small>Hours</small></div>
@@ -8,7 +8,7 @@
       <div class="time"><span>{{ seconds }}</span><small>Seconds</small></div>
       <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
     </div>
-    <p class="message">{{ name }} is turning 18 and coming back to Pennsylvania on September 3, 2026!</p>
+    <p class="message">Comin back to PA after that a little bit after...</p>
     <audio id="t1-sound">
       <source src="/tick.mp3" type="audio/mpeg">
       <source src="/tick.ogg" type="audio/ogg">
@@ -33,8 +33,8 @@ export default {
       minutes: 0,
       seconds: 0,
       milliseconds: 0,
-      previousSeconds: 0,
-      previousMinutes: 0,
+      previousSeconds: -1, // Initialize to an impossible value
+      previousMinutes: -1, // Initialize to an impossible value
     }
   },
   mounted() {
@@ -61,13 +61,13 @@ export default {
 
       // Play tick sound every second
       if (this.seconds !== this.previousSeconds) {
-        document.getElementById('t1-sound').play()
+        document.getElementById('t1-sound').play().catch(() => {})
         this.previousSeconds = this.seconds
       }
 
       // Play minute sound every minute
       if (this.minutes !== this.previousMinutes) {
-        document.getElementById('t2-sound').play()
+        document.getElementById('t2-sound').play().catch(() => {})
         this.previousMinutes = this.minutes
       }
     }
