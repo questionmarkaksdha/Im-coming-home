@@ -8,8 +8,8 @@
       <div class="time"><span>{{ seconds }}</span><small>Seconds</small></div>
       <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
     </div>
-    <p class="message">I'm turning 18 and coming back to Pennsylvania in September or later, 2026!</p>
-    <audio id="tick-sound" src="public/tick"></audio>
+    <p class="message">I'm turning 18 and coming back to Pennsylvania around September 3, 2026 or later!</p>
+    <audio id="tick-sound" src="/tick.mp3"></audio>
   </div>
 </template>
 
@@ -17,13 +17,14 @@
 export default {
   data() {
     return {
-      name: "Aiden",
+      name: "[Name]",
       endDate: new Date("September 3, 2026 00:00:00").getTime(),
       days: 0,
       hours: 0,
       minutes: 0,
       seconds: 0,
       milliseconds: 0,
+      previousSeconds: 0,
     };
   },
   mounted() {
@@ -42,8 +43,9 @@ export default {
       this.milliseconds = ("0" + Math.floor((timeLeft % 1000) / 10)).slice(-2);
 
       // Play tick sound every second
-      if (this.milliseconds === '00') {
+      if (this.seconds !== this.previousSeconds) {
         document.getElementById('tick-sound').play();
+        this.previousSeconds = this.seconds;
       }
     },
   },
