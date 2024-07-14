@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Countdown to {{ name }}'s 18th Birthday</h1>
+    <h1>...</h1>
     <div id="countdown">
       <div class="time"><span>{{ days }}</span><small>Days</small></div>
       <div class="time"><span>{{ hours }}</span><small>Hours</small></div>
@@ -8,8 +8,8 @@
       <div class="time"><span>{{ seconds }}</span><small>Seconds</small></div>
       <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
     </div>
-    <p class="message">I'm turning 18 and coming back to Pennsylvania around September 3, 2026 or later!</p>
-    <audio id="tick-sound" src="/tick.mp3"></audio>
+    <audio id="t1-sound" src="/tick.mp3"></audio>
+    <audio id="t2-sound" src="/minute.mp3"></audio>
   </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
       seconds: 0,
       milliseconds: 0,
       previousSeconds: 0,
+      previousMinutes: 0,
     };
   },
   mounted() {
@@ -44,8 +45,14 @@ export default {
 
       // Play tick sound every second
       if (this.seconds !== this.previousSeconds) {
-        document.getElementById('tick-sound').play();
+        document.getElementById('t1-sound').play();
         this.previousSeconds = this.seconds;
+      }
+
+      // Play minute sound every minute
+      if (this.minutes !== this.previousMinutes) {
+        document.getElementById('t2-sound').play();
+        this.previousMinutes = this.minutes;
       }
     },
   },
