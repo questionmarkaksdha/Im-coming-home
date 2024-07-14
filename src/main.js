@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import 'normalize.css';
-import 'src/particles';
+import { particlesJS } from 'particles.js';
 
 Vue.config.productionTip = false;
 
@@ -12,7 +12,7 @@ new Vue({
       particlesJS('particles-js', {
         particles: {
           number: {
-            value: 80,
+            value: 30,
             density: {
               enable: true,
               value_area: 800
@@ -42,7 +42,7 @@ new Vue({
             }
           },
           size: {
-            value: 3,
+            value: 1,
             random: true,
             anim: {
               enable: false,
