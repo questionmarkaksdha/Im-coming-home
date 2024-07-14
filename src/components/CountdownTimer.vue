@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-@import 'normalize.css';
+@import '~normalize.css';
 
 body {
   background-color: black;
