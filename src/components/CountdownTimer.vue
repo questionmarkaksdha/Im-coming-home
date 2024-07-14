@@ -8,7 +8,7 @@
       <div class="time"><span>{{ seconds }}</span><small>Seconds</small></div>
       <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
     </div>
-    <p class="message">{{ name }} is turning 18 and coming back to Pennsylvania on September 3, 2026!</p>
+    <p class="message">{{ name }} I'm turning 18 and coming back to Pennsylvania in September or later, 2026!</p>
     <audio id="tick-sound" src="public/tick"></audio>
   </div>
 </template>
@@ -17,7 +17,7 @@
 export default {
   data() {
     return {
-      name: "[Name]",
+      name: "Aiden",
       endDate: new Date("September 3, 2026 00:00:00").getTime(),
       days: 0,
       hours: 0,
