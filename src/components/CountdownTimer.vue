@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>...</h1>
+    <h1>Countdown to {{ name }}'s 18th Birthday</h1>
     <div id="countdown">
       <div class="time"><span>{{ days }}</span><small>Days</small></div>
       <div class="time"><span>{{ hours }}</span><small>Hours</small></div>
@@ -8,8 +8,9 @@
       <div class="time"><span>{{ seconds }}</span><small>Seconds</small></div>
       <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
     </div>
-    <audio id="t1-sound" src="/tick.mp3"></audio>
-    <audio id="t2-sound" src="/minute.mp3"></audio>
+    <p class="message">{{ name }} is turning 18 and coming back to Pennsylvania on September 3, 2026!</p>
+    <audio id="t1-sound" src="/public/t1"></audio>
+    <audio id="t2-sound" src="public/t2"></audio>
   </div>
 </template>
 
@@ -30,9 +31,16 @@ export default {
   },
   mounted() {
     this.updateCountdown();
+    this.setVolume();
     setInterval(this.updateCountdown, 10);
   },
   methods: {
+    setVolume() {
+      const t1Sound = document.getElementById('t1-sound');
+      const t2Sound = document.getElementById('t2-sound');
+      t1Sound.volume = 0.1; // Adjust volume for t1-sound (0.0 to 1.0)
+      t2Sound.volume = 1; // Adjust volume for t2-sound (0.0 to 1.0)
+    },
     updateCountdown() {
       const now = new Date().getTime();
       const timeLeft = this.endDate - now;
@@ -71,10 +79,13 @@ body {
   height: 100vh;
   color: #61dafb;
   margin: 0;
+  overflow: hidden;
 }
 
 .container {
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -94,22 +105,40 @@ h1 {
   border-radius: 10px;
   text-align: center;
   min-width: 100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.time:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
 .time span {
   display: block;
   font-size: 2.5em;
   font-weight: bold;
+  transition: transform 0.3s ease;
 }
 
 .time small {
   display: block;
   font-size: 0.75em;
   color: #b0bec5;
+  transition: transform 0.3s ease;
+}
+
+.time:hover span, .time:hover small {
+  transform: scale(1.2);
 }
 
 .message {
   margin-top: 20px;
   font-size: 1.2em;
+  animation: fadeIn 2s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
 }
 </style>

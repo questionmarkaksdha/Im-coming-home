@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div id="particles-js"></div>
     <CountdownTimer />
   </div>
 </template>
@@ -25,9 +26,22 @@ body {
   height: 100vh;
   color: #61dafb;
   margin: 0;
+  overflow: hidden;
 }
 
 #app {
   text-align: center;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
 }
 </style>
