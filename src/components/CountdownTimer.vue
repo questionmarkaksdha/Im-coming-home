@@ -8,7 +8,7 @@
       <div class="time"><span>{{ seconds }}</span><small>Seconds</small></div>
       <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
     </div>
-    <p class="message">{{ name }} I'm turning 18 and coming back to Pennsylvania in September or later, 2026!</p>
+    <p class="message">I'm turning 18 and coming back to Pennsylvania in September or later, 2026!</p>
     <audio id="tick-sound" src="public/tick"></audio>
   </div>
 </template>
