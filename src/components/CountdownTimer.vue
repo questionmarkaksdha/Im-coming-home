@@ -127,8 +127,9 @@ h1 {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  position: relative;
 }
 
 .time span {
@@ -143,7 +144,8 @@ h1 {
 
 .time:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .time::before {
@@ -151,10 +153,15 @@ h1 {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 150%;
-  height: 150%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
   transform: translate(-50%, -50%);
   pointer-events: none;
+  transition: background 0.2s;
+}
+
+.time:hover::before {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent);
 }
 </style>
