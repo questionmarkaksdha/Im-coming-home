@@ -9,7 +9,7 @@
       <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
     </div>
     <p class="message">{{ name }} is turning 18 and coming back to Pennsylvania on September 3, 2026!</p>
-    <audio id="tick-sound" src="public/tick.mp3"></audio>
+    <audio id="tick-sound" src="public/tick"></audio>
   </div>
 </template>
 
