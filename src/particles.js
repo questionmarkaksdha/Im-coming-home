@@ -1,3 +1,4 @@
+/* global particlesJS */
 export function initParticles() {
     particlesJS('particles-js', {
       particles: {
@@ -103,5 +104,5 @@ export function initParticles() {
         }
       },
       retina_detect: true
-    });
+    })
   }
