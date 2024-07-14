@@ -6,14 +6,14 @@
 </template>
 
 <script>
-import CountdownTimer from './components/CountdownTimer.vue';
+import CountdownTimer from './components/CountdownTimer.vue'
 
 export default {
   name: 'App',
   components: {
-    CountdownTimer,
-  },
-};
+    CountdownTimer
+  }
+}
 </script>
 
 <style>
@@ -31,6 +31,8 @@ body {
 
 #app {
   text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 #particles-js {

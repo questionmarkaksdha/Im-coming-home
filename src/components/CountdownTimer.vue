@@ -9,8 +9,8 @@
       <div class="time"><span>{{ milliseconds }}</span><small>Milliseconds</small></div>
     </div>
     <p class="message">{{ name }} is turning 18 and coming back to Pennsylvania on September 3, 2026!</p>
-    <audio id="t1-sound" src="/tick.mp3"></audio>
-    <audio id="t2-sound" src="/minute.mp3"></audio>
+    <audio id="t1-sound" src="public/t1"></audio>
+    <audio id="t2-sound" src="public/t2"></audio>
   </div>
 </template>
 
@@ -18,7 +18,7 @@
 export default {
   data() {
     return {
-      name: "[Name]",
+      name: "Name",
       endDate: new Date("September 3, 2026 00:00:00").getTime(),
       days: 0,
       hours: 0,
@@ -27,48 +27,48 @@ export default {
       milliseconds: 0,
       previousSeconds: 0,
       previousMinutes: 0,
-    };
+    }
   },
   mounted() {
-    this.updateCountdown();
-    this.setVolume();
-    setInterval(this.updateCountdown, 10);
+    this.updateCountdown()
+    this.setVolume()
+    setInterval(this.updateCountdown, 10)
   },
   methods: {
     setVolume() {
-      const t1Sound = document.getElementById('t1-sound');
-      const t2Sound = document.getElementById('t2-sound');
-      t1Sound.volume = 0.5; // Adjust volume for t1-sound (0.0 to 1.0)
-      t2Sound.volume = 0.5; // Adjust volume for t2-sound (0.0 to 1.0)
+      const t1Sound = document.getElementById('t1-sound')
+      const t2Sound = document.getElementById('t2-sound')
+      t1Sound.volume = 0.1 // Adjust volume for t1-sound (0.0 to 1.0)
+      t2Sound.volume = 1 // Adjust volume for t2-sound (0.0 to 1.0)
     },
     updateCountdown() {
-      const now = new Date().getTime();
-      const timeLeft = this.endDate - now;
+      const now = new Date().getTime()
+      const timeLeft = this.endDate - now
 
-      this.days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      this.hours = ("0" + Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2);
-      this.minutes = ("0" + Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))).slice(-2);
-      this.seconds = ("0" + Math.floor((timeLeft % (1000 * 60)) / 1000)).slice(-2);
-      this.milliseconds = ("0" + Math.floor((timeLeft % 1000) / 10)).slice(-2);
+      this.days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
+      this.hours = ("0" + Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).slice(-2)
+      this.minutes = ("0" + Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))).slice(-2)
+      this.seconds = ("0" + Math.floor((timeLeft % (1000 * 60)) / 1000)).slice(-2)
+      this.milliseconds = ("0" + Math.floor((timeLeft % 1000) / 10)).slice(-2)
 
       // Play tick sound every second
       if (this.seconds !== this.previousSeconds) {
-        document.getElementById('t1-sound').play();
-        this.previousSeconds = this.seconds;
+        document.getElementById('t1-sound').play()
+        this.previousSeconds = this.seconds
       }
 
       // Play minute sound every minute
       if (this.minutes !== this.previousMinutes) {
-        document.getElementById('t2-sound').play();
-        this.previousMinutes = this.minutes;
+        document.getElementById('t2-sound').play()
+        this.previousMinutes = this.minutes
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style scoped>
-@import '~normalize.css';
+@import '~normalize.css'
 
 body {
   background-color: black;
@@ -102,43 +102,17 @@ h1 {
 .time {
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  min-width: 100px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.time:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .time span {
+  font-size: 3em;
   display: block;
-  font-size: 2.5em;
-  font-weight: bold;
-  transition: transform 0.3s ease;
 }
 
 .time small {
+  font-size: 1em;
   display: block;
-  font-size: 0.75em;
-  color: #b0bec5;
-  transition: transform 0.3s ease;
-}
-
-.time:hover span, .time:hover small {
-  transform: scale(1.2);
-}
-
-.message {
-  margin-top: 20px;
-  font-size: 1.2em;
-  animation: fadeIn 2s ease-in-out infinite alternate;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0.6; }
-  100% { opacity: 1; }
 }
 </style>
